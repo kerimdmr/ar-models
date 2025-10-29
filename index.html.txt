@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3D Model Görüntüleme</title>
+  <script>
+    // Kendi model linklerini buraya yaz:
+    const glbModel = "https://cdn.jsdelivr.net/gh/KerimDemiral/ar-models/Chair.glb";
+    const usdzModel = "https://cdn.jsdelivr.net/gh/KerimDemiral/ar-models/Chair.usdz";
+
+    // Cihaz türünü algıla
+    function isAndroid() { return /Android/i.test(navigator.userAgent); }
+    function isIOS() { return /iPhone|iPad|iPod/i.test(navigator.userAgent); }
+
+    window.onload = function() {
+      if (isAndroid()) {
+        window.location.href = glbModel;
+      } else if (isIOS()) {
+        window.location.href = usdzModel;
+      } else {
+        document.body.innerHTML = "<h2 style='text-align:center;margin-top:40vh;'>Bu modeli yalnızca mobil cihazlarda görebilirsiniz.</h2>";
+      }
+    };
+  </script>
+</head>
+<body>
+</body>
+</html>
